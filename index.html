@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Primary Meta Tags -->
+
+<meta name="description" content="calculator" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://metatags.io/" />
+<meta property="og:description" content="calculator" />
+<meta property="og:image" content="ttps://thumbs2.imgbox.com/69/b9/tEPkVN1G_t.png" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://metatags.io/" />
+<meta property="twitter:description" content="calculator" />
+<meta property="twitter:image" content="ttps://thumbs2.imgbox.com/69/b9/tEPkVN1G_t.png" />
+
+<!-- Meta Tags Generated with https://metatags.io -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <title>calculator</title>
+  </head>
+  <body>
+    <div class="d-flex min-vh-100 justify-center item-center">
+      <form id="answer" name="form1">
+        <input
+          type="text"
+          id="box"
+          name="ans"
+          class="w-full h-50 bg-green outline-0 box1"
+          readonly
+        />
+        <div class="d-flex justify-between">
+          <input
+            type="button"
+            value="1"
+            class="inputstyle"
+            onclick="form1.ans.value += '1'"
+          />
+          <input
+            type="button"
+            value="2"
+            class="inputstyle"
+            onclick="form1.ans.value +='2'"
+          />
+          <input
+            type="button"
+            value="3"
+            class="inputstyle"
+            onclick="form1.ans.value +='3'"
+          />
+          <input
+            type="button"
+            value="+"
+            class="inputoperator"
+            onclick="addno('+')"
+          />
+        </div>
+        <div class="d-flex justify-between">
+          <input
+            type="button"
+            value="4"
+            class="inputstyle"
+            onclick="form1.ans.value +='4'"
+          />
+          <input
+            type="button"
+            value="5"
+            class="inputstyle"
+            onclick="form1.ans.value +='5'"
+          />
+          <input
+            type="button"
+            value="6"
+            class="inputstyle"
+            onclick="form1.ans.value +='6'"
+          />
+          <input
+            type="button"
+            value="-"
+            class="inputoperator"
+            onclick="addno('-')"
+          />
+        </div>
+        <div class="d-flex justify-between">
+          <input
+            type="button"
+            value="7"
+            class="inputstyle"
+            onclick="form1.ans.value +='7'"
+          />
+          <input
+            type="button"
+            value="8"
+            class="inputstyle"
+            onclick="form1.ans.value +='8'"
+          />
+          <input
+            type="button"
+            value="9"
+            class="inputstyle"
+            onclick="form1.ans.value +='9'"
+          />
+          <input
+            type="button"
+            value="*"
+            class="inputoperator"
+            onclick="addno('*')"
+          />
+        </div>
+        <div class="d-flex justify-between">
+          <input
+            type="button"
+            value="/"
+            class="inputoperator"
+            onclick="addno('/')"
+          />
+          <input
+            type="button"
+            value="0"
+            class="inputstyle"
+            onclick="form1.ans.value +='0'"
+          />
+          <input
+            type="button"
+            value="."
+            class="inputoperator"
+            onclick="addno('.')"
+          />
+          <input
+            type="button"
+            value="="
+            class="inputoperator"
+            onclick="sum()"
+          />
+        </div>
+        <div class="d-flex justify-between">
+          <input type="button" value="dl" class="inputoperator" onclick="form1.ans.value = form1.ans.value.slice(0,-1)"/>
+          <input type="button" value="A/C" class="inputoperator" onclick="form1.ans.value = ' ' " />
+        </div>
+      </form>
+    </div>
+    <script>
+      function addno(operators) {
+        const answerbox = document.getElementById("box").value.slice(-1);
+        const answer = document.getElementById("box");
+        if (isNaN(answerbox) && answerbox !== ")") {
+          document.getElementById("box").value =
+            document.getElementById("box").value.slice(0, -1) + operators;
+        } else if (answer.value != "") {
+          document.getElementById("box").value += operators;
+        }
+      }
+      function sum() {
+        const answer = document.getElementById("box");
+        if (answer.value !== "") {
+          answer.value = eval(answer.value);
+        }
+      }
+    </script>
+  </body>
+</html>
